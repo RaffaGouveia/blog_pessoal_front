@@ -1,0 +1,12 @@
+.titulo {
+    color : rgb(156, 30, 156);
+    text-align:center;
+}
+
+.fotoHome {
+    width:"500px";
+    height:"500px";
+    display :block(
+        margin = 0 auto
+    )
+}
