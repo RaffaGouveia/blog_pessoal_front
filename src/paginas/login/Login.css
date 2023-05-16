@@ -1,0 +1,22 @@
+.fotoFundo{
+    background-image : url("https://i.imgur.com/d5bMdDJ.jpg");
+    min-height : 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.button-decoration{
+    background-color: pink !important;
+    color: rgb(179, 51, 73) !important;
+    cursor: pointer;
+}
+
+.corEntradas{
+    background-color: pink;
+    color: rgb(179, 51, 73);
+    color: rgb(214, 93, 93);
+}
+
+.text-decorator-none{
+    text-decoration: none;
+}
