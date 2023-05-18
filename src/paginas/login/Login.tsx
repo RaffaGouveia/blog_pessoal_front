@@ -56,27 +56,29 @@ function Login() {
               </Link>
             </Box>
           </form>
-          <Link to='/cadastro' className='text-decorator-none'>
-          <Box display="flex" justifyContent="center" marginTop={2}>
-            <Box marginRight={1}>
+          <Link to="/cadastro" className="text-decorator-none">
+            <Box display="flex" justifyContent="center" marginTop={2}>
+              <Box marginRight={1}>
+                <Typography
+                  variant="subtitle1"
+                  gutterBottom
+                  align="center"
+                  style={{ color: "pink" }}
+                >
+                  Não tem um cadastro?
+                </Typography>
+              </Box>
               <Typography
                 variant="subtitle1"
                 gutterBottom
                 align="center"
-                style={{ color: "pink" }}
+                style={{ color: "pink", fontWeight: "bold", cursor: "pointer" }}
               >
-                Não tem um cadastro?
+                {" "}
+                Cadastre-se
               </Typography>
             </Box>
-            <Typography
-              variant="subtitle1"
-              gutterBottom
-              align="center"
-              style={{ color:"pink", fontWeight:"bold", cursor: 'pointer' }}
-            > Cadastre-se</Typography>
-          </Box>
           </Link>
-          
         </Box>
       </Grid>
       <Grid xs={6} className="fotoFundo"></Grid>

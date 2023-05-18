@@ -10,42 +10,39 @@ function Navbar() {
       <AppBar position="static" className="navBar">
         <Toolbar variant="dense">
           <Grid container justifyContent={"space-between"}>
-            <Box style={{ cursor: "pointer" }}>
-              <Typography variant="h5" color="inherit">
-                Blog Pessoal
-              </Typography>
+            <Box mx={1} style={{ cursor: "pointer" }}>
+              <Link to="/home">
+                <Button className="button-decoration">
+                  <Typography variant="h6">Blog Pessoal</Typography>
+                </Button>
+              </Link>
             </Box>
             <Box display="flex" justifyContent="start">
               <Box mx={1} style={{ cursor: "pointer" }}>
-                <Link to="/home">
-                  <Button className='button-decoration'>
-                    <Typography style={{ color: "rgb(179, 51, 73)" }}>
-                      Home
-                    </Typography>
+                <Link to="/postagens">
+                  <Button className="button-decoration">
+                    <Typography>Postagens</Typography>
                   </Button>
                 </Link>
               </Box>
               <Box mx={1} style={{ cursor: "pointer" }}>
-                <Typography variant="h6" color="inherit">
-                  Postagens
-                </Typography>
+                <Link to="/temas">
+                  <Button className="button-decoration">
+                    <Typography>Temas</Typography>
+                  </Button>
+                </Link>
               </Box>
               <Box mx={1} style={{ cursor: "pointer" }}>
-                <Typography variant="h6" color="inherit">
-                  Temas
-                </Typography>
-              </Box>
-              <Box mx={1} style={{ cursor: "pointer" }}>
-                <Typography variant="h6" color="inherit">
-                  Cadastrar tema
-                </Typography>
+                <Link to="/cadastroTemas">
+                  <Button className="button-decoration">
+                    <Typography>Cadastrar tema</Typography>
+                  </Button>
+                </Link>
               </Box>
               <Box mx={1} style={{ cursor: "pointer" }}>
                 <Link to="/login">
-                  <Button className='button-decoration'>
-                    <Typography>
-                      Logout
-                    </Typography>
+                  <Button className="button-decoration">
+                    <Typography>Logout</Typography>
                   </Button>
                 </Link>
               </Box>
