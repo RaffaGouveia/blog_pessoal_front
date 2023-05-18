@@ -3,7 +3,7 @@ import "./Login.css";
 import { Box, Grid, Typography, TextField, Button } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import useLocalStorage from 'react-use-localstorage';
-import { api } from "../../service/Service";
+import { login } from "../../service/Service";
 import UserLogin from "../../model/UserLogin";
 
 function Login() {
@@ -32,8 +32,7 @@ function Login() {
   async function onSubmit(event: ChangeEvent<HTMLFormElement>){
     event.preventDefault();
     try{
-      const resposta = await api.post(`/usuarios/logar`, userLogin)
-      setToken(resposta.data.token)
+    await login(`/usuarios/logar`, userLogin,setToken)
       alert('Usuário logado com sucesso');
     }catch(error){
       alert('Usuário e/ou senha incorretos!')
