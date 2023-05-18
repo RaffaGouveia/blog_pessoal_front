@@ -10,7 +10,7 @@ function Login() {
       direction="row"
       justifyContent="center"
       alignItems="center"
-      style={{ backgroundColor: "rgb(214, 93, 93)" }}
+      className = "fullfill-vh-color"
     >
       <Grid xs={6} alignItems="center">
         <Box paddingX={20}>
@@ -21,7 +21,7 @@ function Login() {
               color="textprimary"
               component="h3"
               align="center"
-              style={{ fontWeight: "bold", color: "aquamarine" }}
+              className = 'first-text'
             >
               Entrar
             </Typography>
@@ -56,18 +56,18 @@ function Login() {
               </Link>
             </Box>
           </form>
-          <Link to="/cadastro" className="text-decorator-none">
-            <Box display="flex" justifyContent="center" marginTop={2}>
-              <Box marginRight={1}>
-                <Typography
-                  variant="subtitle1"
-                  gutterBottom
-                  align="center"
-                  style={{ color: "pink" }}
-                >
-                  Não tem um cadastro?
-                </Typography>
-              </Box>
+          <Box display="flex" justifyContent="center" marginTop={2}>
+            <Box marginRight={1}>
+              <Typography
+                variant="subtitle1"
+                gutterBottom
+                align="center"
+                style={{ color: "pink" }}
+              >
+                Não tem um cadastro?
+              </Typography>
+            </Box>
+            <Link to="/cadastrousuario" className="text-decorator-none">
               <Typography
                 variant="subtitle1"
                 gutterBottom
@@ -77,8 +77,8 @@ function Login() {
                 {" "}
                 Cadastre-se
               </Typography>
-            </Box>
-          </Link>
+            </Link>
+          </Box>
         </Box>
       </Grid>
       <Grid xs={6} className="fotoFundo"></Grid>

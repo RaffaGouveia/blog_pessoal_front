@@ -13,10 +13,17 @@
 
 .corEntradas{
     background-color: pink;
-    color: rgb(179, 51, 73);
-    color: rgb(214, 93, 93);
 }
 
 .text-decorator-none{
     text-decoration: none;
+}
+
+.first-text{
+    font-weight: bold;
+    color: aquamarine;
+}
+
+.fullfill-vh-color{
+    background-color: rgb(214, 93, 93)!important;
 }

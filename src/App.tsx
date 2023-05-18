@@ -4,7 +4,7 @@ import "./App.css";
 import Navbar from "./componentes/estaticos/navbar/Navbar";
 import Home from "./paginas/home/Home";
 import Footer from "./componentes/estaticos/footer/Footer";
-import Login from "./paginas/login/Login"
+import Login from "./paginas/login/Login";
 import CadastrarUsuario from "./paginas/cadastrar-user/CadastroUser";
 import Postagem from "./paginas/postagens/Postagem";
 import Temas from "./paginas/temas/Temas";
@@ -19,10 +19,10 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/cadastro" element={<CadastrarUsuario />} />
-          <Route path="/postagens" element={<Postagem/>}/>
-          <Route path='/temas' element={<Temas/>} />
-          <Route path="cadastroTemas" element={<CadastroTema/>} />
+          <Route path="/cadastrousuario" element={<CadastrarUsuario />} />
+          <Route path="/postagens" element={<Postagem />} />
+          <Route path="/temas" element={<Temas />} />
+          <Route path="cadastrotemas" element={<CadastroTema />} />
         </Routes>
       </div>
       <Footer />
