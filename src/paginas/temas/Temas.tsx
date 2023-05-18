@@ -4,7 +4,7 @@ import './Tema.css'
 function Temas(){
     return(
         <>
-        
+        <h1>Temas</h1>
         </>
     )
 }
