@@ -2,6 +2,7 @@ import React from "react";
 import { Typography, Grid, Button } from "@material-ui/core";
 import { Box } from "@mui/material";
 import "./Home.css";
+import TabPostagem from "../../componentes/postagens/tabPostagem/TabPostagem";
 
 function Home() {
   return (
@@ -10,9 +11,9 @@ function Home() {
       direction="row"
       justifyContent="center"
       alignItems="center"
-      style={{ backgroundColor: "#3F51B5" }}
+      className='superior-HomePage-part'
     >
-      <Grid alignItems="center" item xs={6}>
+      <Grid alignItems="center" item xs={6} >
         <Box paddingX={20}>
           <Typography
             variant="h3"
@@ -20,7 +21,7 @@ function Home() {
             color="textPrimary"
             component="h3"
             align="center"
-            className='titulo'
+            className="titulo"
           >
             Seja bem vindo(a)!
           </Typography>
@@ -30,17 +31,14 @@ function Home() {
             color="textPrimary"
             component="h5"
             align="center"
-            className='titulo'
+            className="titulo"
           >
             Expresse aqui os seus pensamentos e opiniões!
           </Typography>
         </Box>
         <Box display="flex" justifyContent="center">
           <Box marginRight={1}></Box>
-          <Button
-            variant="outlined"
-            className="custom-button-post"
-          >
+          <Button variant="outlined" className="custom-button-post">
             Ver postagens
           </Button>
         </Box>
@@ -52,8 +50,9 @@ function Home() {
           width="500px"
           height="500px"
         />
-      </Grid>
-      <Grid xs={12} className='postagem'></Grid>
+      </Grid >
+      <Grid xs={12} className="postagem"></Grid>
+      <TabPostagem />
     </Grid>
   );
 }

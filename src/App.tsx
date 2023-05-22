@@ -19,9 +19,9 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/cadastrousuario" element={<CadastrarUsuario />} />
-          <Route path="/listapostagem" element={<ListaPostagem />} />
-          <Route path="/listatemas" element={<ListaTema />} />
+          <Route path="/signin" element={<CadastrarUsuario />} />
+          <Route path="/posts" element={<ListaPostagem />} />
+          <Route path="/themes" element={<ListaTema />} />
           <Route path="/cadastrotemas" element={<CadastroTema />} />
         </Routes>
       </div>
