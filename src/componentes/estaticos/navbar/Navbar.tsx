@@ -43,14 +43,14 @@ function Navbar() {
                 </Link>
               </Box>
               <Box mx={1} style={{ cursor: "pointer" }}>
-                <Link to="/cadastroTemas">
+                <Link to="/registerThemes">
                   <Button className="button-decoration">
                     <Typography>Cadastrar tema</Typography>
                   </Button>
                 </Link>
               </Box>
               <Box mx={1} style={{ cursor: "pointer" }} onClick={goLogout}>
-                <Button  className="button-decoration">
+                <Button className="button-decoration">
                   <Typography>Logout</Typography>
                 </Button>
               </Box>
