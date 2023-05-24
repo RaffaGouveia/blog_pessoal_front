@@ -21,7 +21,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/signin" element={<CadastrarUsuario />} />
           <Route path="/posts" element={<ListaPostagem />} />
-          <Route path="/themes" element={<ListaTema />} />
+          <Route path="/formThemes" element={<ListaTema />} />
           <Route path="/cadastrotemas" element={<CadastroTema />} />
         </Routes>
       </div>
