@@ -36,14 +36,14 @@ function Navbar() {
                 </Link>
               </Box>
               <Box mx={1} style={{ cursor: "pointer" }}>
-                <Link to="/formThemes">
+                <Link to="/themes">
                   <Button className="button-decoration">
                     <Typography>Temas</Typography>
                   </Button>
                 </Link>
               </Box>
               <Box mx={1} style={{ cursor: "pointer" }}>
-                <Link to="/registerThemes">
+                <Link to="/formThemes">
                   <Button className="button-decoration">
                     <Typography>Cadastrar tema</Typography>
                   </Button>

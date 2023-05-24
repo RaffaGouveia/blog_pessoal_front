@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import User from "../../model/User";
 import { cadastroUsuario } from "../../service/Service";
 
-function CadastrarUsuario() {
+function CadastrarUser() {
   let navigate = useNavigate();
   const [confirmarSenha, setConfirmarSenha] = useState<String>("");
   const [user, setUser] = useState<User>({
@@ -131,7 +131,11 @@ function CadastrarUsuario() {
                   Cancelar
                 </Button>
               </Link>
-              <Button type= 'submit' variant="contained" className="btnCadastrar">
+              <Button
+                type="submit"
+                variant="contained"
+                className="btnCadastrar"
+              >
                 Cadastrar
               </Button>
             </Box>
@@ -142,4 +146,4 @@ function CadastrarUsuario() {
   );
 }
 
-export default CadastrarUsuario;
+export default CadastrarUser;
