@@ -13,12 +13,12 @@ import {
 import "./CadastroPost.css";
 import { useNavigate, useParams } from "react-router-dom";
 import useLocalStorage from "react-use-localstorage";
-import Post from "../../../model/Postagem";
+import Postagem from "../../../model/Postagem";
 import { busca, buscaId, post, put } from "../../../service/Service";
 import Tema from "../../../model/Tema";
 
 function CadastroPost() {
-  const [posts, setPosts] = useState<Post>({
+  const [posts, setPosts] = useState<Postagem>({
     id: 0,
     titulo: "",
     texto: "",
@@ -76,6 +76,7 @@ function CadastroPost() {
       [event.target.name]: event.target.value,
       tema: theme,
     });
+    console.log(posts);
   }
 
   async function onSubmit(event: ChangeEvent<HTMLFormElement>) {
@@ -139,7 +140,7 @@ function CadastroPost() {
             labelId="demo-simple-select-helper-label"
             id="demo-simple-select-helper"
             onChange={(e) =>
-              buscaId(`/tema/${e.target.value}`, setTheme, {
+              buscaId(`/temas/${e.target.value}`, setTheme, {
                 headers: {
                   Authorization: token,
                 },
