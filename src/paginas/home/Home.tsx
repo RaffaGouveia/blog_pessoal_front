@@ -4,6 +4,7 @@ import { Box } from "@mui/material";
 import "./Home.css";
 import TabPostagem from "../../componentes/postagens/tabPostagem/TabPostagem";
 import ModalPost from "../../componentes/postagens/modal-post/ModalPost";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -39,9 +40,11 @@ function Home() {
         </Box>
         <Box display="flex" justifyContent="center">
           <Box marginRight={1}>{<ModalPost />}</Box>
+          <Link to='/posts'>
           <Button variant="outlined" className="custom-button-post">
             Ver postagens
           </Button>
+          </Link>
         </Box>
       </Grid>
       <Grid item xs={6}>

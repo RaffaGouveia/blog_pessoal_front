@@ -3,20 +3,27 @@ import { AppBar, Toolbar, Typography } from "@material-ui/core";
 import { Box, Button, Grid } from "@mui/material";
 import "./Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
-import useLocalStorage from "react-use-localstorage";
+import { useDispatch, useSelector } from "react-redux";
+import { TokenState } from "../../../store/tokens/tokensReducer";
+import { addToken } from "../../../store/tokens/actions";
 
 function Navbar() {
-  const [token, setToken] = useLocalStorage("token");
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
+  const dispatch = useDispatch();
   let navigate = useNavigate();
 
   function goLogout() {
-    setToken("");
+    dispatch(addToken(""));
     alert("Usuário deslogado!");
     navigate("/login");
   }
 
-  return (
-    <>
+  var navbarComponent;
+
+  if (token !== "") {
+    navbarComponent = (
       <AppBar position="static" className="navBar">
         <Toolbar variant="dense">
           <Grid container justifyContent={"space-between"}>
@@ -58,7 +65,9 @@ function Navbar() {
           </Grid>
         </Toolbar>
       </AppBar>
-    </>
-  );
+    );
+  }
+
+  return <>{navbarComponent}</>;
 }
 export default Navbar;
