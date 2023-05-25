@@ -9,13 +9,16 @@ import {
 import { Box } from "@mui/material";
 import "./DeletarTema.css";
 import { useNavigate, useParams } from "react-router-dom";
-import useLocalStorage from "react-use-localstorage";
 import { buscaId, deleteId } from "../../../service/Service";
 import Tema from "../../../model/Tema";
+import { useSelector } from "react-redux";
+import { TokenState } from "../../../store/tokens/tokensReducer";
 
 function DeletarTema() {
   const [themes, setThemes] = useState<Tema>();
-  const [token, setToken] = useLocalStorage("token");
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
   const { id } = useParams<{ id: string }>();
   let navigate = useNavigate();
 

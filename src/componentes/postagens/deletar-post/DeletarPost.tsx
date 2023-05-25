@@ -10,12 +10,15 @@ import { Box } from "@mui/material";
 import "./DeletarPost.css";
 import Post from "../../../model/Postagem";
 import { buscaId, deleteId } from "../../../service/Service";
-import useLocalStorage from "react-use-localstorage";
 import { useNavigate, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { TokenState } from "../../../store/tokens/tokensReducer";
 
 function DeletarPost() {
   const [posts, setPosts] = useState<Post>();
-  const [token, setToken] = useLocalStorage("token");
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
   const { id } = useParams<{ id: string }>();
   let navigate = useNavigate();
 
