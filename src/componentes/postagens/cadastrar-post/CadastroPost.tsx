@@ -17,24 +17,38 @@ import { busca, buscaId, post, put } from "../../../service/Service";
 import Tema from "../../../model/Tema";
 import { useSelector } from "react-redux";
 import { TokenState } from "../../../store/tokens/tokensReducer";
+import User from "../../../model/User";
 
 function CadastroPost() {
+  const [themes, setThemes] = useState<Tema[]>([]);
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
+  const userId = useSelector<TokenState, TokenState["id"]>(
+    (state) => state.id
+  );
+  const { id } = useParams<{ id: string }>();
+  let navigate = useNavigate();
   const [posts, setPosts] = useState<Postagem>({
     id: 0,
     titulo: "",
     texto: "",
+    data: '',
     tema: null,
+    usuario: null,
   });
   const [theme, setTheme] = useState<Tema>({
     id: 0,
     descricao: "",
   });
-  const [themes, setThemes] = useState<Tema[]>([]);
-  const token = useSelector<TokenState, TokenState["tokens"]>(
-    (state) => state.tokens
-  );
-  const { id } = useParams<{ id: string }>();
-  let navigate = useNavigate();
+  const [user,setUser] = useState<User>({
+    id: +userId,
+    nome: '',
+    usuario: '',
+    senha: '',
+    foto: '',
+  })
+  
 
   useEffect(() => {
     if (token == "") {
@@ -47,6 +61,7 @@ function CadastroPost() {
     setPosts({
       ...posts,
       tema: theme,
+      usuario: user,
     });
   }, [theme]);
 

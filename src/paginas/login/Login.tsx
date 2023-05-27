@@ -4,7 +4,7 @@ import { Box, Grid, Typography, TextField, Button } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../../service/Service";
 import UserLogin from "../../model/UserLogin";
-import { addToken } from "../../store/tokens/actions";
+import { addId, addToken } from "../../store/tokens/actions";
 import { useDispatch } from "react-redux";
 
 function Login() {
@@ -15,8 +15,17 @@ function Login() {
     id: 0,
     usuario: "",
     senha: "",
+    foto: "",
     token: "",
   });
+
+  const [respUserLogin,setRespUserLogin] =useState<UserLogin>({
+    id: 0,
+    usuario: "",
+    senha: "",
+    foto: "",
+    token: "",
+  })
 
   function updatedModel(event: ChangeEvent<HTMLInputElement>) {
     setUserLogin({
@@ -35,12 +44,20 @@ function Login() {
   async function onSubmit(event: ChangeEvent<HTMLFormElement>){
     event.preventDefault();
     try{
-    await login(`/usuarios/logar`, userLogin,setToken)
+    await login(`/usuarios/logar`, userLogin,setRespUserLogin)
       alert('Usuário logado com sucesso');
     }catch(error){
       alert('Usuário e/ou senha incorretos!')
     }
   }
+
+  useEffect(() => {
+    if(respUserLogin.token !== ''){
+      dispatch(addToken(respUserLogin.token))
+      dispatch(addId(respUserLogin.id.toString()))
+      navigate('/home')
+    }
+  },[respUserLogin.token])
   return (
     <Grid
       container
