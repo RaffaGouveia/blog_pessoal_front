@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, useEffect} from "react";
+import React, { useState, ChangeEvent, useEffect } from "react";
 import "./Login.css";
 import { Box, Grid, Typography, TextField, Button } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
@@ -6,11 +6,12 @@ import { login } from "../../service/Service";
 import UserLogin from "../../model/UserLogin";
 import { addId, addToken } from "../../store/tokens/actions";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 
 function Login() {
   let navigate = useNavigate();
   const dispatch = useDispatch();
-  const [token,setToken] = useState('');
+  const [token, setToken] = useState("");
   const [userLogin, setUserLogin] = useState<UserLogin>({
     id: 0,
     usuario: "",
@@ -19,13 +20,13 @@ function Login() {
     token: "",
   });
 
-  const [respUserLogin,setRespUserLogin] =useState<UserLogin>({
+  const [respUserLogin, setRespUserLogin] = useState<UserLogin>({
     id: 0,
     usuario: "",
     senha: "",
     foto: "",
     token: "",
-  })
+  });
 
   function updatedModel(event: ChangeEvent<HTMLInputElement>) {
     setUserLogin({
@@ -34,30 +35,41 @@ function Login() {
     });
   }
 
-  useEffect(() => {
-    if(token !== ''){
-      dispatch(addToken(token));
-      navigate('/home')
-    }
-  }, [token])
-
-  async function onSubmit(event: ChangeEvent<HTMLFormElement>){
+  async function onSubmit(event: ChangeEvent<HTMLFormElement>) {
     event.preventDefault();
-    try{
-    await login(`/usuarios/logar`, userLogin,setRespUserLogin)
-      alert('Usuário logado com sucesso');
-    }catch(error){
-      alert('Usuário e/ou senha incorretos!')
+    try {
+      await login(`/usuarios/logar`, userLogin, setRespUserLogin);
+      toast.success("Usuário logado com sucesso", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    } catch (error) {
+      toast.error("Usuário e/ou senha incorretos!", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
     }
   }
 
   useEffect(() => {
-    if(respUserLogin.token !== ''){
-      dispatch(addToken(respUserLogin.token))
-      dispatch(addId(respUserLogin.id.toString()))
-      navigate('/home')
+    if (respUserLogin.token !== "") {
+      dispatch(addToken(respUserLogin.token));
+      dispatch(addId(respUserLogin.id.toString()));
+      navigate("/home");
     }
-  },[respUserLogin.token])
+  }, [respUserLogin.token]);
   return (
     <Grid
       container
@@ -107,13 +119,13 @@ function Login() {
               className="corEntradas"
             ></TextField>
             <Box marginTop={2} textAlign="center">
-                <Button
-                  type="submit"
-                  variant="contained"
-                  className="button-decoration"
-                >
-                  Logar
-                </Button>
+              <Button
+                type="submit"
+                variant="contained"
+                className="button-decoration"
+              >
+                Logar
+              </Button>
             </Box>
           </form>
           <Box display="flex" justifyContent="center" marginTop={2}>

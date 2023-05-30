@@ -13,6 +13,7 @@ import Postagem from "../../../model/Postagem";
 import { busca } from "../../../service/Service";
 import { useSelector } from "react-redux";
 import { TokenState } from "../../../store/tokens/tokensReducer";
+import { toast } from "react-toastify";
 
 function ListaPostagem() {
   const [posts, setPosts] = useState<Postagem[]>([]);
@@ -23,7 +24,16 @@ function ListaPostagem() {
 
   useEffect(() => {
     if (token == "") {
-      alert("Você precisa estar logado para isso!");
+      toast.warning("Você precisa estar logado para isso!", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
       navigate("/login");
     }
   }, ["token"]);
@@ -65,7 +75,7 @@ function ListaPostagem() {
             <CardActions>
               <Box display="flex" justifyContent="center" mb={1.5}>
                 <Link
-                  to={`/formPost/${post.id}`}
+                  to={`/formPosts/${post.id}`}
                   className="text-decorator-none"
                 >
                   <Box mx={1}>

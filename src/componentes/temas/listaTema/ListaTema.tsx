@@ -13,6 +13,7 @@ import Tema from "../../../model/Tema";
 import { busca } from "../../../service/Service";
 import { useSelector } from "react-redux";
 import { TokenState } from "../../../store/tokens/tokensReducer";
+import { toast } from "react-toastify";
 
 function ListaTema() {
   const [themes, setThemes] = useState<Tema[]>([]);
@@ -23,7 +24,16 @@ function ListaTema() {
 
   useEffect(() => {
     if (token == "") {
-      alert("Você precisa estar logado para isso!");
+      toast.warning("Você precisa estar logado para isso!", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
       navigate("/login");
     }
   }, ["token"]);

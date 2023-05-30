@@ -5,6 +5,7 @@ import { buscaId, post, put } from "../../../service/Service";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { TokenState } from "../../../store/tokens/tokensReducer";
+import { toast } from "react-toastify";
 
 function CadastroTema() {
   const [themes, setThemes] = useState<Tema>({
@@ -19,7 +20,16 @@ function CadastroTema() {
 
   useEffect(() => {
     if (token == "") {
-      alert("Você precisa estar logado para isso!");
+      toast.warning("Você precisa estar logado para isso!", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
       navigate("/login");
     }
   }, ["token"]);
@@ -47,23 +57,38 @@ function CadastroTema() {
 
   async function onSubmit(event: ChangeEvent<HTMLFormElement>) {
     event.preventDefault();
-    console.log("Tema " + JSON.stringify(themes));
-
     if (id !== undefined) {
-      console.log(themes);
       put(`/temas`, themes, setThemes, {
         headers: {
           Authorization: token,
         },
       });
-      alert("Tema atualizado com sucesso!");
+      toast.success("Tema atualizado com sucesso!", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
     } else {
       post(`/temas`, themes, setThemes, {
         headers: {
           Authorization: token,
         },
       });
-      alert("Tema cadastrado com sucesso!");
+      toast.success("Tema cadastrado com sucesso!", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
     }
     back();
   }
